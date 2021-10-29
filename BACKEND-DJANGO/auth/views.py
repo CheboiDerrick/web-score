@@ -6,11 +6,11 @@ from django.contrib.auth.models import User
 
 
 class MyObtainTokenPairView(TokenObtainPairView):
-    permission_classes = (AllowAny,)
+    # permission_classes = (AllowAny,)
     serializer_class = MyTokenObtainPairSerializer
 
 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
-    permission_classes = (AllowAny,)
+    # permission_classes = (AllowAny,)
     serializer_class = RegisterSerializer

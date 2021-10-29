@@ -13,6 +13,7 @@ django-cors-headers = "*"
 djangorestframework-simplejwt = "*"
 django-filter = "*"
 pyjwt = "*"
+django-rest-registration = "*"
 
 [dev-packages]
 autopep8 = "*"

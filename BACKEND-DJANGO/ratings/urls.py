@@ -29,7 +29,7 @@ router.register(r'api/v1/projects', ProjectViewSet, basename='Project')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/auth/', include('auth.urls')),
+    path('api/v1/', include('auth.urls')),
     path('', include(router.urls)),
 ]
 if settings.DEBUG:

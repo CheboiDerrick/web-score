@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { ProjectsService } from './shared/services/projects.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,7 +22,7 @@ import { ProfileComponent } from './components/profile/profile.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule
+    AppRoutingModule,HttpClientModule, ReactiveFormsModule, FormsModule
   ],
   providers: [ProjectsService],
   bootstrap: [AppComponent]
