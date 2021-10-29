@@ -16,14 +16,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from rest_framework.routers import DefaultRouter
+from posts.views import ProjectViewSet, ProfileViewSet
 from django.conf.urls.static import static
 
 
 
+router = DefaultRouter()
+router.register(r'api/v1/profile', ProfileViewSet, basename='Profile')
+router.register(r'api/v1/projects', ProjectViewSet, basename='Project')
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/', include('posts.urls')),
+    path('api/v1/auth/', include('auth.urls')),
+    path('', include(router.urls)),
 ]
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

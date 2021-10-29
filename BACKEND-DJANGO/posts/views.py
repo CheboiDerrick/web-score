@@ -1,15 +1,17 @@
 from rest_framework import viewsets
-from .models import Project
-from .serializers import ProjectSerializer
+from rest_framework.permissions import IsAuthenticated
+from .models import Project, Profile
+from .serializers import ProjectSerializer, ProfileSerializer
 from django.http import HttpResponse
 import json
+from rest_framework.permissions import AllowAny
 # Create your views here.
 
 
-
-class ProjectViewset(viewsets.ModelViewSet):
+class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+    # permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
         file = request.data['file']
@@ -17,10 +19,15 @@ class ProjectViewset(viewsets.ModelViewSet):
         return HttpResponse(json.dumps({'message': "Uploaded"}), status=200)
 
 
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+    # permission_classes=[IsAuthenticated]
 
-
-
-
+    def post(self, request, *args, **kwargs):
+        file = request.data['file']
+        image = Project.objects.create(image=file)
+        return HttpResponse(json.dumps({'message': "Uploaded"}), status=200)
 
 
 # @csrf_exempt
@@ -48,5 +55,3 @@ class ProjectViewset(viewsets.ModelViewSet):
 #     elif request.method == 'DELETE':
 #         project.delete()
 #         return HttpResponse(status=204)
-
-
