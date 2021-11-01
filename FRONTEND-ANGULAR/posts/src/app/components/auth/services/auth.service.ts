@@ -21,9 +21,9 @@ export class AuthenticationService {
     console.log('Auth service started.....')
   }
 
-  registerUser(username: string, password: string, password_confirm: string): Observable<any> {
+  registerUser(username: string, email:string, password: string, password_confirm: string): Observable<any> {
     return this._http.post(`${environment.AUTH_URL}register/`, {
-      username, password, password_confirm
+      username, email, password, password_confirm
     }, httpOptions);
   }
 

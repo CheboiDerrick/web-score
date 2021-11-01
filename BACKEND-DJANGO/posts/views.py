@@ -14,9 +14,12 @@ class ProjectViewSet(viewsets.ModelViewSet):
     # permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
-        file = request.data['file']
-        image = Project.objects.create(image=file)
-        return HttpResponse(json.dumps({'message': "Uploaded"}), status=200)
+        title = request.data['title']
+        file = request.FILES['image']
+        description = request.data['description']
+        link = request.data['link']
+        Project.objects.create(title=title,image=file, description=description, link=link)
+        return HttpResponse(({'message': "Uploaded"}), status=200)
 
 
 class ProfileViewSet(viewsets.ModelViewSet):

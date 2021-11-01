@@ -1,7 +1,7 @@
 export interface IProject {
     id?: string;
     title: string;
-    image?: HTMLImageElement | File;
+    image?: string | File;
     description: string;
     link: string;
 }

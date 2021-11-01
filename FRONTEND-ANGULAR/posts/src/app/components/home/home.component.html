@@ -1,6 +1,7 @@
 <div class="col-md-6 mx-auto" *ngFor='let project of projects'>
-<p> {{project.id}} </p>
-<p>{{project.title}}</p>
-<img src="{{project.image}}" class="img-fluid" alt="Project landing page">
-<p><a href="{{project.link}}" target="_blank" rel="noopener noreferrer"></a></p>
+    <p> {{project.id}} </p>
+    <p>{{project.title}}</p>
+    <p> {{project.description}} </p>
+    <img src="{{project.image}}" class="img-fluid" alt="Project landing page">
+    <p><a href="{{project.link}}" target="_blank" rel="noopener noreferrer"></a></p>
 </div>

@@ -13,7 +13,7 @@ class Project(models.Model):
     Model that describes a project. The properties are title of the project, the image of the landing page of the project, a detailed description of the project and a link to the project site
     '''
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to=projectFile)
+    image = models.ImageField(upload_to=projectFile, default='/projectPhotos/default.jpg')
     description = models.TextField()
     link = models.CharField(max_length=200)
 
@@ -28,7 +28,7 @@ class Profile(models.Model):
     email=models.EmailField(default='user@domain.com')
     picture = models.ImageField(upload_to=profileFile)
     bio = models.TextField()
-    phone = models.CharField(max_length=70, null=True)
+    phone = models.CharField(max_length=15, null=True)
     
 
 
