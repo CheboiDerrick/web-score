@@ -16,6 +16,7 @@ export class AuthenticationService {
   isSuccessful = false;
   isSignInFailed = false;
   errorMessage = '';
+  
 
   constructor(private _http: HttpClient, private route: Router) {
     console.log('Auth service started.....')

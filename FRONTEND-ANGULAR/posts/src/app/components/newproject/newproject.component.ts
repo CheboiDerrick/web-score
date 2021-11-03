@@ -23,7 +23,7 @@ export class NewprojectComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       'title':new FormControl('', [Validators.required]),
-      'image': new FormControl('', [Validators.required]),
+      // 'image': new FormControl('', [Validators.required]),
       'description':new FormControl('', [Validators.required]),
       'link': new FormControl('', [Validators.required]),
     });
@@ -48,5 +48,4 @@ export class NewprojectComponent implements OnInit {
       console.log(this.message)
    })
   }
-
 }
