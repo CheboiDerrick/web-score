@@ -16,13 +16,12 @@ export class AuthenticationService {
   isSuccessful = false;
   isSignInFailed = false;
   errorMessage = '';
-  
+
 
   constructor(private _http: HttpClient, private route: Router) {
-    console.log('Auth service started.....')
   }
 
-  registerUser(username: string, email:string, password: string, password_confirm: string): Observable<any> {
+  registerUser(username: string, email: string, password: string, password_confirm: string): Observable<any> {
     return this._http.post(`${environment.AUTH_URL}register/`, {
       username, email, password, password_confirm
     }, httpOptions);
