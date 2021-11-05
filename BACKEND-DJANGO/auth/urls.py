@@ -1,4 +1,4 @@
-from django.urls import path,include
+from django.urls import path, include
 # from auth.views import MyObtainTokenPairView, RegisterView
 # from rest_framework_simplejwt.views import TokenRefreshView
 
